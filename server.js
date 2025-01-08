@@ -23,7 +23,7 @@ app.post("/notes", (req, res) => {
       res.send(data);
     })
     .catch((err) => {
-      res.send(err);
+      res.status(500).send(err);
     });
 });
 
@@ -35,7 +35,7 @@ app.get("/notes", (req, res) => {
         res.send(data);
       })
       .catch((err) => {
-        res.send(err);
+        res.status(500).send(err);
       });
   } else {
     db.getNotes()
