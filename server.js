@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
-  res.send("health: ok" + db.url);
+  res.send("health: ok");
 });
 
 // create POST API to be able to create a new note
@@ -23,7 +23,7 @@ app.post("/notes", (req, res) => {
       res.send(data);
     })
     .catch((err) => {
-      res.status(500).send(err);
+      res.send(err);
     });
 });
 
@@ -35,7 +35,7 @@ app.get("/notes", (req, res) => {
         res.send(data);
       })
       .catch((err) => {
-        res.status(500).send(err);
+        res.send(err);
       });
   } else {
     db.getNotes()
